@@ -29,7 +29,7 @@ void APPLICATION_FORM() {
 }
 void APPLICATION_END() {
 	std::cout << "\n APPLICATION END\n\n";
-	system("pause");
+	//system("pause");
 }
 
 

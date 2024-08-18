@@ -57,6 +57,24 @@ namespace SuperUI {
 	private: System::Windows::Forms::Button^ btnFCls;
 	private: System::Windows::Forms::Button^ btnFMin;
 	private: System::Windows::Forms::Button^ btnFWin;
+	private: System::Windows::Forms::Panel^ pnlContent;
+
+
+
+
+	private: System::Windows::Forms::Panel^ pnlAuth;
+	private: System::Windows::Forms::PictureBox^ pictureBoxBack;
+
+
+
+
+	private: System::Windows::Forms::LinkLabel^ lllGachi;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Button^ button8;
+
+
+
 
 
 
@@ -93,12 +111,22 @@ namespace SuperUI {
 			this->pnlHead = (gcnew System::Windows::Forms::Panel());
 			this->pnlBottom = (gcnew System::Windows::Forms::Panel());
 			this->pnlForm = (gcnew System::Windows::Forms::Panel());
-			this->btnFCls = (gcnew System::Windows::Forms::Button());
-			this->btnFWin = (gcnew System::Windows::Forms::Button());
 			this->btnFMin = (gcnew System::Windows::Forms::Button());
+			this->btnFWin = (gcnew System::Windows::Forms::Button());
+			this->btnFCls = (gcnew System::Windows::Forms::Button());
+			this->pnlContent = (gcnew System::Windows::Forms::Panel());
+			this->pnlAuth = (gcnew System::Windows::Forms::Panel());
+			this->lllGachi = (gcnew System::Windows::Forms::LinkLabel());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->button8 = (gcnew System::Windows::Forms::Button());
+			this->pictureBoxBack = (gcnew System::Windows::Forms::PictureBox());
 			this->pnlMenu->SuspendLayout();
 			this->pnlGavkaSubmenu->SuspendLayout();
 			this->pnlForm->SuspendLayout();
+			this->pnlContent->SuspendLayout();
+			this->pnlAuth->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxBack))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// pnlMenu
@@ -337,20 +365,21 @@ namespace SuperUI {
 			this->pnlForm->Size = System::Drawing::Size(1165, 30);
 			this->pnlForm->TabIndex = 3;
 			// 
-			// btnFCls
+			// btnFMin
 			// 
-			this->btnFCls->Dock = System::Windows::Forms::DockStyle::Right;
-			this->btnFCls->FlatAppearance->BorderSize = 0;
-			this->btnFCls->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->btnFCls->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Red;
-			this->btnFCls->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnFCls->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnFCls.Image")));
-			this->btnFCls->Location = System::Drawing::Point(1135, 0);
-			this->btnFCls->Name = L"btnFCls";
-			this->btnFCls->Size = System::Drawing::Size(30, 30);
-			this->btnFCls->TabIndex = 0;
-			this->btnFCls->UseVisualStyleBackColor = true;
+			this->btnFMin->Dock = System::Windows::Forms::DockStyle::Right;
+			this->btnFMin->FlatAppearance->BorderSize = 0;
+			this->btnFMin->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->btnFMin->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Silver;
+			this->btnFMin->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnFMin->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnFMin.Image")));
+			this->btnFMin->Location = System::Drawing::Point(1075, 0);
+			this->btnFMin->Name = L"btnFMin";
+			this->btnFMin->Size = System::Drawing::Size(30, 30);
+			this->btnFMin->TabIndex = 2;
+			this->btnFMin->UseVisualStyleBackColor = true;
+			this->btnFMin->Click += gcnew System::EventHandler(this, &MyForm::btnFMin_Click);
 			// 
 			// btnFWin
 			// 
@@ -366,34 +395,123 @@ namespace SuperUI {
 			this->btnFWin->Size = System::Drawing::Size(30, 30);
 			this->btnFWin->TabIndex = 1;
 			this->btnFWin->UseVisualStyleBackColor = true;
+			this->btnFWin->Click += gcnew System::EventHandler(this, &MyForm::btnFWin_Click);
 			// 
-			// btnFMin
+			// btnFCls
 			// 
-			this->btnFMin->Dock = System::Windows::Forms::DockStyle::Right;
-			this->btnFMin->FlatAppearance->BorderSize = 0;
-			this->btnFMin->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)),
-				static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
-			this->btnFMin->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Silver;
-			this->btnFMin->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnFMin->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnFMin.Image")));
-			this->btnFMin->Location = System::Drawing::Point(1075, 0);
-			this->btnFMin->Name = L"btnFMin";
-			this->btnFMin->Size = System::Drawing::Size(30, 30);
-			this->btnFMin->TabIndex = 2;
-			this->btnFMin->UseVisualStyleBackColor = true;
+			this->btnFCls->Dock = System::Windows::Forms::DockStyle::Right;
+			this->btnFCls->FlatAppearance->BorderSize = 0;
+			this->btnFCls->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->btnFCls->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Red;
+			this->btnFCls->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnFCls->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnFCls.Image")));
+			this->btnFCls->Location = System::Drawing::Point(1135, 0);
+			this->btnFCls->Name = L"btnFCls";
+			this->btnFCls->Size = System::Drawing::Size(30, 30);
+			this->btnFCls->TabIndex = 0;
+			this->btnFCls->UseVisualStyleBackColor = true;
+			this->btnFCls->Click += gcnew System::EventHandler(this, &MyForm::btnFCls_Click);
+			// 
+			// pnlContent
+			// 
+			this->pnlContent->Controls->Add(this->pnlAuth);
+			this->pnlContent->Controls->Add(this->pictureBoxBack);
+			this->pnlContent->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->pnlContent->Location = System::Drawing::Point(219, 72);
+			this->pnlContent->Name = L"pnlContent";
+			this->pnlContent->Size = System::Drawing::Size(946, 560);
+			this->pnlContent->TabIndex = 4;
+			// 
+			// pnlAuth
+			// 
+			this->pnlAuth->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->pnlAuth->BackColor = System::Drawing::Color::Transparent;
+			this->pnlAuth->Controls->Add(this->lllGachi);
+			this->pnlAuth->Controls->Add(this->label1);
+			this->pnlAuth->Controls->Add(this->textBox1);
+			this->pnlAuth->Controls->Add(this->button8);
+			this->pnlAuth->Location = System::Drawing::Point(283, 381);
+			this->pnlAuth->Name = L"pnlAuth";
+			this->pnlAuth->Size = System::Drawing::Size(328, 159);
+			this->pnlAuth->TabIndex = 4;
+			this->pnlAuth->Visible = false;
+			// 
+			// lllGachi
+			// 
+			this->lllGachi->AutoSize = true;
+			this->lllGachi->Font = (gcnew System::Drawing::Font(L"Montserrat SemiBold", 9.749999F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lllGachi->LinkColor = System::Drawing::Color::DimGray;
+			this->lllGachi->Location = System::Drawing::Point(117, 127);
+			this->lllGachi->Name = L"lllGachi";
+			this->lllGachi->Size = System::Drawing::Size(98, 18);
+			this->lllGachi->TabIndex = 4;
+			this->lllGachi->TabStop = true;
+			this->lllGachi->Text = L"Войти в gym";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Montserrat SemiBold", 9.749999F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(20, 15);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(128, 18);
+			this->label1->TabIndex = 3;
+			this->label1->Text = L"Нормально живи";
+			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(23, 36);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(287, 23);
+			this->textBox1->TabIndex = 1;
+			// 
+			// button8
+			// 
+			this->button8->BackColor = System::Drawing::SystemColors::ButtonShadow;
+			this->button8->FlatAppearance->BorderSize = 0;
+			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button8->Font = (gcnew System::Drawing::Font(L"Montserrat SemiBold", 9.749999F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button8->Location = System::Drawing::Point(61, 72);
+			this->button8->Name = L"button8";
+			this->button8->Size = System::Drawing::Size(210, 52);
+			this->button8->TabIndex = 2;
+			this->button8->Text = L"По понятиям";
+			this->button8->UseVisualStyleBackColor = false;
+			// 
+			// pictureBoxBack
+			// 
+			this->pictureBoxBack->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->pictureBoxBack->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBoxBack.Image")));
+			this->pictureBoxBack->Location = System::Drawing::Point(0, 0);
+			this->pictureBoxBack->Name = L"pictureBoxBack";
+			this->pictureBoxBack->Size = System::Drawing::Size(946, 560);
+			this->pictureBoxBack->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBoxBack->TabIndex = 5;
+			this->pictureBoxBack->TabStop = false;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(1165, 678);
+			this->Controls->Add(this->pnlContent);
 			this->Controls->Add(this->pnlBottom);
 			this->Controls->Add(this->pnlHead);
 			this->Controls->Add(this->pnlMenu);
 			this->Controls->Add(this->pnlForm);
+			this->DoubleBuffered = true;
 			this->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->Name = L"MyForm";
 			this->ShowIcon = false;
@@ -402,6 +520,10 @@ namespace SuperUI {
 			this->pnlMenu->ResumeLayout(false);
 			this->pnlGavkaSubmenu->ResumeLayout(false);
 			this->pnlForm->ResumeLayout(false);
+			this->pnlContent->ResumeLayout(false);
+			this->pnlAuth->ResumeLayout(false);
+			this->pnlAuth->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxBack))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -419,9 +541,7 @@ namespace SuperUI {
 
 		   String^ CurrentDir = System::IO::Directory::GetCurrentDirectory();
 
-	private: System::Void btnGavka_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-		
-	}
+	
 	private: System::Void btnExit_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 		Graphics^ g = e->Graphics;
 		g->SmoothingMode = System::Drawing::Drawing2D::SmoothingMode::HighQuality;
@@ -433,5 +553,41 @@ namespace SuperUI {
 	private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
+private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
+}
+
+
+	   private: System::Void btnGavka_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+		   System::Drawing::Drawing2D::GraphicsPath^ path = gcnew System::Drawing::Drawing2D::GraphicsPath();
+		   int r = 20;
+		   int w = this->Width;
+		   int h = this->Height;
+
+		   path->AddArc(0, 0 , r, r, 180, 90);
+			   path->AddArc(w-r, 0 ,r, r, 270, 90);
+			   path->AddArc(w-r, h-r, r, r, 0, 90);
+			   path->AddArc(0, h-r, r, r, 90, 90);
+
+
+			this->Region = gcnew Drawing::Region(path);
+
+	   }
+
+
+
+
+	private: System::Void btnFCls_Click(System::Object^ sender, System::EventArgs^ e) {
+		Close();
+	}
+	private: System::Void btnFWin_Click(System::Object^ sender, System::EventArgs^ e) {
+		WindowState = (WindowState == FormWindowState::Normal ? FormWindowState::Maximized : FormWindowState::Normal);
+		Refresh();
+	}
+	private: System::Void btnFMin_Click(System::Object^ sender, System::EventArgs^ e) {
+		WindowState = (WindowState == FormWindowState::Normal ? FormWindowState::Minimized : FormWindowState::Normal);
+	}
 };
+
+	
+
 }
